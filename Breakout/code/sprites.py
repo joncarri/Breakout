@@ -23,7 +23,7 @@ class Player(pygame.sprite.Sprite):
 
         #lasers
         self.laser_amount = 0
-        self.laser_surf = pygame.image.load('graphics/other/laser.png').convert_alpha()
+        self.laser_surf = pygame.image.load('Breakout/graphics/other/laser.png').convert_alpha()
         self.laser_rects = []
 
     def input(self):
@@ -88,7 +88,7 @@ class Ball(pygame.sprite.Sprite):
         self.blocks = blocks
 
         #graphics
-        self.image = pygame.image.load('graphics/other/ball.png').convert_alpha()
+        self.image = pygame.image.load('Breakout/graphics/other/ball.png').convert_alpha()
 
         #position
         self.rect = self.image.get_rect(midbottom = player.rect.midtop)
@@ -102,10 +102,10 @@ class Ball(pygame.sprite.Sprite):
         self.active = False
 
         #sounds
-        self.impact_sound = pygame.mixer.Sound('sounds/impact.wav')
+        self.impact_sound = pygame.mixer.Sound('Breakout/sounds/impact.wav')
         self.impact_sound.set_volume(0.1)
 
-        self.fail_sound = pygame.mixer.Sound('sounds/fail.wav')
+        self.fail_sound = pygame.mixer.Sound('Breakout/sounds/fail.wav')
         self.fail_sound.set_volume(0.1)
 
     def window_collision(self, direction):
@@ -225,7 +225,7 @@ class Upgrade(pygame.sprite.Sprite):
     def __init__(self, position, upgrade_type, groups):
         super().__init__(groups)
         self.upgrade_type = upgrade_type
-        self.image = pygame.image.load(f'graphics/upgrades/{upgrade_type}.png').convert_alpha()
+        self.image = pygame.image.load(f'Breakout/graphics/upgrades/{upgrade_type}.png').convert_alpha()
         self.rect = self.image.get_rect(midtop = position)
 
         self.position = pygame.math.Vector2(self.rect.topleft)
